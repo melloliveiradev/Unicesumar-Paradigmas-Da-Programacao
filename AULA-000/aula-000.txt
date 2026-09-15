@@ -1,0 +1,149 @@
+Aula - 000
+Filipe Mello de Oliveira
+R.A: 24159233-2
+
+1. Por que estudar paradigmas?
+Explique três benefícios práticos de estudar conceitos de linguagens de programação, mesmo quando o desenvolvedor trabalha diariamente com apenas uma linguagem.
+R:
+1. Expande o repertório para pensar em soluções diferentes para os problemas.
+2. Facilita o aprendizado e a transição para novas linguagens.
+3. Ajuda a explorar melhor os recursos e estilos da própria linguagem de uso diário.
+
+2. Linguagem, paradigma e domínio
+Defina com suas palavras: linguagem de programação, paradigma e domínio de aplicação. Depois, dê um exemplo que relacione os três conceitos.
+R:
+- Linguagem de programação: Conjunto de regras sintáticas e semânticas usado para dar instruções ao computador.
+- Paradigma: Estilo ou modelo de organização da lógica de um programa.
+- Domínio de aplicação: Área de atuação ou tipo de problema a ser resolvido pelo software.
+Exemplo: Na área de análise de dados (domínio), usa-se Python (linguagem) aplicante o paradigma funcional para filtrar conjuntos de dados sem alterar o estado original.
+
+3. Sintaxe ou semântica?
+Classifique cada situação como problema principalmente de sintaxe ou de semântica:
+a) Um parêntese foi aberto e não foi fechado.
+b) O programa compila, mas deposita um valor negativo na conta errada.
+c) Uma palavra reservada foi escrita incorretamente.
+d) A condição do laço nunca se torna falsa.
+e) Uma função recebe dois argumentos, mas a chamada fornece apenas um.
+f) A fórmula da média usa a soma correta, mas divide pela quantidade errada.
+R:
+a) Sintaxe
+b) Semântica
+c) Sintaxe
+d) Semântica
+e) Sintaxe
+f) Semântica
+
+4. Etapas de tradução
+Organize as etapas abaixo em uma sequência coerente para um processo de compilação: geração de código, análise léxica, execução, análise sintática, análise semântica. Depois explique, em uma frase, a função de cada etapa.
+R:
+Ordem: Análise léxica -> Análise sintática -> Análise semântica -> Geração de código -> Execução.
+Funções:
+Análise léxica: Converte o código bruto em tokens.
+análise sintática: Monta a estrutura gramatical (árvore sintática).
+Análise semântica: Checa se os tipos e sentidos dos comandos estão corretos.
+Geração de código: Converte a estrutura validada para código final ou intermediário.
+Execução: Roda o código traduzido na máquina.
+
+5. Identificação de paradigmas
+Associe cada descrição ao paradigma predominante:
+a) O programa é uma sequência de comandos que altera o estado.
+b) A solução é modelada com objetos que combinam dados e comportamentos.
+c) O resultado é obtido por composição e aplicação de funções.
+d) O conhecimento é descrito por fatos e regras, e o sistema realiza inferência.
+e) Várias tarefas progridem de forma sobreposta ou simultânea.
+R:
+a) Imperativo
+b) Orientado a Objetos
+c) Funcional
+d) Lógico
+e) Concorrente
+
+6. Curto-circuito
+Considere a condição: x != 0 && 10 / x > 2
+a) O que acontece quando x vale zero em uma linguagem com avaliação em curto-circuito?
+b) O que poderia acontecer se a linguagem avaliasse obrigatoriamente as duas partes?
+c) Reescreva a lógica usando uma estrutura condicional explícita.
+R:
+a) A primeira parte (`x != 0`) é falsa, então a avaliação para imediatamente e retorna falso.
+b) Tentaria avaliar `10 / x` com x em zero, gerando um erro de divisão por zero.
+c)
+
+7. Mesmo problema, estilos diferentes
+Observe duas soluções em Python para somar os números pares de uma lista:
+a) Qual versão apresenta estilo mais imperativo? Por quê?
+b) Qual versão usa mais recursos funcionais?
+c) Qual delas você considera mais legível para uma equipe iniciante? Justifique.
+R:
+a) Versão A. Porque descreve os passos explicitamente usando laço `for` e alteração de variável.
+b) Versão B.
+c) Versão A. Para quem está começando, o fluxo simples com `for` e `if` é mais fácil de acompanhar do que expressões lambda e funções de alta ordem.
+
+8. Escopo e tempo de vida
+Analise o pseudocódigo:
+Assumindo escopo léxico convencional, indique onde x, y e z podem ser acessados. A última instrução é válida? Explique.
+R:
+- x: no escopo global e na função `calcular`.
+- y: em toda a função `calcular`.
+- z: apenas dentro do bloco `se`.
+
+A última instrução não é válida porque `z` deixa de existir fora do bloco `se`.
+
+9. Escolha de linguagem
+Uma equipe precisa desenvolver um pequeno sistema de análise de dados. O prazo é curto, a equipe já conhece Python e o desempenho exigido é moderado. Outra pessoa defende usar uma linguagem de baixo nível porque 'é mais rápida'. Avalie a decisão considerando pelo menos cinco critérios.
+R:
+1. Prazo: Python permite desenvolver bem mais rápido.
+2. Experiência do time: A equipe já conhece Python, o que diminui erros.
+3. Ecossistema: Python possui bibliotecas prontas para análise de dados.
+4. Desempenho necessário: O requisito é moderado, então linguagens de baixo nível não trarão benefício relevante.
+5. Manutenibilidade: O código em Python é mais enxuto e simples de manter.
+É melhor manter o uso do Python.
+
+10. Trade-offs
+Explique por que não existe uma linguagem objetivamente melhor em todos os aspectos. Apresente dois exemplos de trade-off...
+R:
+Nenhuma linguagem é perfeita para tudo porque priorizar uma característica sempre exige abrir mão de outra.
+Exemplos:
+1. Produtividade vs Controle: Linguagens de alto nível aceleram o desenvolvimento, mas tiram o controle fino sobre a memória.
+2. Segurança vs Desempenho: Checagens extras de memória evitam erros, mas deixam a execução um pouco mais lenta.
+
+11. Linguagem multiparadigma
+Escolha uma linguagem multiparadigma que você conhece. Mostre, com exemplos pequenos ou descrições, como ela permite utilizar pelo menos dois paradigmas diferentes.
+R:
+Linguagem: Python.
+Estilo Imperativo:
+soma = 0
+for n in [1, 2, 3]:
+    soma += n
+
+Estilo Funcional:
+soma = sum(filter(lambda x: x % 2 == 0, [1, 2, 3]))
+
+12. Inteligência artificial e responsabilidade
+Uma ferramenta de IA gerou um programa que compila e produz uma saída aparentemente correta. Liste pelo menos seis verificações que um desenvolvedor responsável ainda deve realizar antes de usar esse código em produção.
+R:
+1. Testar entradas inválidas e casos limites.
+2. Checar brechas de segurança no código.
+3. Avaliar se a performance e o consumo de memória estão bons.
+4. Criar e rodar testes automatizados.
+5. Verificar se o código segue o padrão e estilo da equipe.
+6. Conferir licenças de bibliotecas e dependências sugeridas.
+
+13. Desafio prático
+Implemente, em qualquer linguagem, um programa que receba uma lista de números e produza: (1) a soma dos pares; (2) a quantidade de valores positivos; e (3) o maior valor. Depois identifique o paradigma predominante da sua solução e explique como ela poderia ser reescrita em outro estilo.
+R:
+Código em Python:
+def analisar(numeros):
+    if not numeros:
+        return 0, 0, None
+    soma_pares = sum(n for n in numeros if n % 2 == 0)
+    qtd_positivos = sum(1 for n in numeros if n > 0)
+    maior = max(numeros)
+    return soma_pares, qtd_positivos, maior
+
+- Paradigma predominante: Funcional / Declarativo simples (processamento via expressões e funções prontas, sem modificar estado).
+- Reescrita em estilo Imperativo: Usar um laço `for` tradicional com variáveis mutáveis acumulando os valores passo a passo (`soma += n`, etc.).
+
+14. Síntese final
+Escreva uma frase que resuma a ideia central da Aula 000. A resposta deve relacionar formas de pensar, escolha de ferramentas e qualidade da solução.
+R:
+Aprender diferentes paradigmas expande a forma de pensar do desenvolvedor, ajudando a escolher a melhor ferramenta para cada situação e garantindo soluções de maior qualidade.

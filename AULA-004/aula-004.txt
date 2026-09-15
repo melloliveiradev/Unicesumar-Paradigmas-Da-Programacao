@@ -1,0 +1,190 @@
+Filipe Mello de Oliveira
+RA: 24159233-2
+Aula: aula-004
+
+1. Análise do código fonte
+Aplique "Análise do código fonte" a um pequeno trecho de entrada ou gramática criado por você. Explique o resultado passo a passo e indique como verificaria se ele está correto.
+R:
+- Aplicação: Trecho de entrada `total = soma + 10;`.
+- Passo a passo do resultado:
+  1. Análise Léxica: O analisador lê o código-fonte caractere por caractere e produz os tokens `<ID, "total">`, `<ASSIGN, "=">`, `<ID, "soma">`, `<PLUS, "+">`, `<INT, "10">` e `<SEMICOLON, ";">`.
+  2. Análise Sintática: O analisador sintático recebe os tokens e verifica se eles seguem a regra gramatical `<Atrib> -> <ID> '=' <Exp> ';'`. Constrói a árvore sintática atribuindo a expressão `soma + 10` ao lado direito da atribuição.
+  3. Análise Semântica: Verifica a compatibilidade de tipos entre as variáveis `soma` e `total` e a constante inteira `10`.
+- Verificação de correção: Executar um conjunto de testes unitários no compilador passando cadeias válidas (ex: `total = soma + 10;`) e inválidas (ex: `total = + 10;`), verificando se o compilador gera a Árvore de Sintaxe Abstrata (AST) esperada ou emite os erros de sintaxe apropriados.
+
+2. FNB na descrição da sintaxe
+Analise o erro conceitual: alguém tratou "FNB na descrição da sintaxe" como uma etapa isolada, sem relação com a entrada ou com as demais etapas. Explique o problema e reescreva a conclusão.
+R:
+- Erro conceitual: Tratar a Forma de Naur-Backus (FNB/BNF) como uma fase de execução isolada dentro do compilador.
+- Explicação do problema: A BNF não é um módulo executável que processa dados de forma independente, mas sim uma notação formal (metalinguagem) utilizada para especificar e documentar a sintaxe da linguagem. Ela orienta a construção do analisador sintático, o qual utiliza essa especificação para processar a entrada de tokens.
+- Conclusão reescrita: A FNB/BNF não é uma etapa isolada de execução, mas a especificação formal da sintaxe que fundamenta o algoritmo do analisador sintático na validação da entrada do código-fonte.
+
+3. Analisador léxico e analisador sintático
+Construa um exemplo mínimo que demonstre "Analisador léxico e analisador sintático". Identifique a entrada, a decisão realizada e a saída esperada.
+R:
+- Entrada: A cadeia de texto `if (x > 0)`.
+- Decisão realizada:
+  1. Analisador Léxico: Decidir o agrupamento dos caracteres em unidades atômicas (tokens) com base nos padrões da linguagem (ex: identificar que `if` é uma palavra reservada, e não um identificador genérico).
+  2. Analisador Sintático: Decidir se a sequência de tokens respeita a regra estrutural da linguagem para comandos condicionais (`IF` `LPAREN` `EXPR` `RPAREN`).
+- Saída esperada:
+  1. Saída Léxica: Sequência de tokens `<IF>`, `<LPAREN>`, `<ID, "x">`, `<GT>`, `<INT, "0">`, `<RPAREN>`.
+  2. Saída Sintática: Nó de comando condicional construído na Árvore de Sintaxe Abstrata (AST).
+
+4. Separação da análise léxica e da análise sintática
+Compare o comportamento de um analisador com e sem considerar "Separação da análise léxica e da análise sintática". Aponte o impacto no reconhecimento ou no diagnóstico.
+R:
+- Com separação: O analisador léxico remove espaços em branco, comentários e agrupa caracteres em tokens. O analisador sintático lida exclusivamente com a estrutura gramatical de alto nível.
+- Sem separação: O analisador sintático precisa tratar caractere por caractere em todas as suas regras, incluindo todas as variações de espaços em branco, tabulações e comentários.
+- Impacto: Sem a separação, a gramática torna-se extremamente complexa e volumosa, o desempenho do compilador cai vertiginosamente e os diagnósticos de erro tornam-se confusos, pois um erro simples de digitação pode ser reportado como uma falha gramatical profunda.
+
+5. Análise Léxica
+Explique "Análise Léxica" para um colega usando uma definição, um exemplo autoral e uma relação com outro conceito da aula.
+R:
+- Definição: A análise léxica é a primeira fase do compilador que lê o fluxo de caracteres do código-fonte de entrada e o converte em uma sequência de tokens significativos.
+- Exemplo autoral: A leitura da string `val = 42;` é convertida pelo analisador léxico na sequência `[ID("val"), OP("="), INT(42), SEMICOLON(";")]`.
+- Relação com outro conceito: Relaciona-se diretamente com a Tabela de Símbolos, pois é durante a análise léxica que os identificadores encontrados são inseridos ou consultados na tabela para gerenciar seus atributos.
+
+6. Lexema e token
+Aplique "Lexema e token" a um pequeno trecho de entrada ou gramática criado por você. Explique o resultado passo a passo e indique como verificaria se ele está correto.
+R:
+- Aplicação: Trecho de entrada `contador = 100;`.
+- Passo a passo do resultado:
+  1. `contador`: O lexema é a string concreta `"contador"`; o token resultante é `<ID, "contador">`.
+  2. `=`: O lexema é `"="`; o token resultante é `<ASSIGN, null>`.
+  3. `100`: O lexema é a string `"100"`; o token resultante é `<INT_LIT, 100>`.
+  4. `;`: O lexema é `";"`; o token resultante é `<SEMICOLON, null>`.
+- Verificação de correção: Imprimir a lista de estruturas de dados de tokens geradas pelo lexer e verificar se cada par (nome do token, valor do atributo) corresponde exatamente aos tipos e lexemas presentes na cadeia de entrada.
+
+7. Abordagens para construir o analisador léxico
+Analise o erro conceitual: alguém tratou "Abordagens para construir o analisador léxico" como uma etapa isolada, sem relação com a entrada ou com as demais etapas. Explique o problema e reescreva a conclusão.
+R:
+- Erro conceitual: Tratar a escolha das abordagens de construção (como codificação manual via Autômatos Finitos ou uso de geradores automáticos como Lex/Flex) como uma fase de execução em tempo de compilação.
+- Explicação do problema: As abordagens são estratégias de engenharia de software para implementar o analisador léxico, e não etapas do fluxo de processamento do compilador. Independente da abordagem escolhida, o componente gerado atua no mesmo ponto do pipeline, consumindo a entrada e alimentando o parser.
+- Conclusão reescrita: As abordagens de construção do analisador léxico definem a metodologia de desenvolvimento do módulo léxico, o qual é responsável por transformar os caracteres de entrada nos tokens consumidos pela análise sintática.
+
+8. Classes de caracteres
+Construa um exemplo mínimo que demonstre “Classes de caracteres”. Identifique a entrada, a decisão realizada e a saída esperada.
+R:
+- Entrada: Caractere `'9'`.
+- Decisão realizada: O analisador léxico consulta a tabela de classes de caracteres e identifica que `'9'` pertence à classe `DIGITO` (conjunto de caracteres de `'0'` a `'9'`). Com base nessa classe, o autômato decide transicionar do estado inicial para o estado de construção de literais numéricos.
+- Saída esperada: Redirecionamento correto do fluxo de controle do autômato para agrupar literais numéricos.
+
+9. Reconhecimento de palavras reservadas
+Compare o comportamento de um analisador com e sem considerar “Reconhecimento de palavras reservadas”. Aponte o impacto no reconhecimento ou no diagnóstico.
+R:
+- Com reconhecimento especializado: O lexer identifica lexemas como `while` e os categoriza diretamente com o token `WHILE` usando busca em tabela de hash ou estados específicos no autômato.
+- Sem reconhecimento especializado: O lexer trataria `while` como um identificador comum (`ID`), deixando para o analisador sintático a tarefa de diferenciar palavras reservadas de variáveis.
+- Impacto: Sem essa diferenciação prévia, a gramática torna-se desnecessariamente complexa e ambígua, dificultando o diagnóstico de erros quando uma palavra reservada for usada indevidamente como nome de variável.
+
+10. Funções getChar, addChar e lookup
+Explique “Funções getChar, addChar e lookup” para um colega usando uma definição, um exemplo autoral e uma relação com outro conceito da aula.
+R:
+- Definição: `getChar` lê o próximo caractere do buffer de entrada e avança o ponteiro; `addChar` acumula o caractere lido na variável que armazena o lexema corrente; `lookup` pesquisa na tabela de palavras reservadas se o lexema acumulado é uma palavra-chave ou identificador.
+- Exemplo autoral: Ao processar o texto `if`, `getChar` lê `'i'` e `addChar` adiciona ao buffer. Em seguida, `getChar` lê `'f'` e `addChar` adiciona ao buffer. Ao encontrar um espaço, `lookup("if")` pesquisa o buffer e retorna o token `TOKEN_IF`.
+- Relação com outro conceito: Relaciona-se com a implementação prática de Autômatos Finitos Determinísticos (AFD), onde essas funções realizam a leitura de entrada, construção da cadeia e classificação dos estados finais.
+
+11. Objetivos da análise sintática
+Aplique “Objetivos da análise sintática” a um pequeno trecho de entrada ou gramática criado por você. Explique o resultado passo a passo e indique como verificaria se ele está correto.
+R:
+- Aplicação: Trecho de entrada `x = + * 5;`.
+- Passo a passo do resultado:
+  1. O analisador sintático recebe a sequência de tokens `<ID>, <ASSIGN>, <PLUS>, <MULT>, <INT>`.
+  2. Tenta atingir o objetivo 1 (construir a árvore sintática) aplicando as regras de atribuição e expressão.
+  3. Ao encontrar a sequência `<PLUS> <MULT>`, identifica a violação das regras gramaticais e aciona o objetivo 2 (diagnóstico e tratamento de erros).
+- Verificação de correção: Verificar se o analisador rejeita a cadeia e produz uma mensagem de erro precisa com a linha, coluna e o token inesperado `*`.
+
+12. Análise Sintática Descendente
+Analise o erro conceitual: alguém tratou “Análise Sintática Descendente” como uma etapa isolada, sem relação com a entrada ou com as demais etapas. Explique o problema e reescreva a conclusão.
+R:
+- Erro conceitual: Considerar a análise descendente (top-down) como um processo isolado desconectado do fluxo de tokens de entrada.
+- Explicação do problema: A análise descendente tenta construir a árvore sintática a partir do símbolo inicial (raiz) em direção às folhas. No entanto, ela depende inteiramente dos tokens da entrada para orientar a expansão das regras de produção corretas.
+- Conclusão reescrita: A análise sintática descendente constrói a árvore da raiz às folhas, utilizando os tokens fornecidos pela análise léxica para decidir qual produção gramatical aplicar a cada passo.
+
+13. Análise Sintática Ascendente
+Construa um exemplo mínimo que demonstre “Análise Sintática Ascendente”. Identifique a entrada, a decisão realizada e a saída esperada.
+R:
+- Entrada: Tokens `id + id` e a gramática `E -> E + T | T`, `T -> id`.
+- Decisão realizada: Realizar sucessivas reduções das folhas em direção à raiz (bottom-up). O analisador decide reduzir o primeiro `id` para `T` e depois para `E`; lê `+`; lê o segundo `id` e reduz para `T`; finalmente reduz `E + T` para `E`.
+- Saída esperada: Construção da árvore sintática culminando no símbolo inicial `E`.
+
+14. Deslocamento e redução
+Compare o comportamento de um analisador com e sem considerar “Deslocamento e redução”. Aponte o impacto no reconhecimento ou no diagnóstico.
+R:
+- Com Deslocamento e Redução (Shift/Reduce): O analisador empilha tokens (Shift) até reconhecer o lado direito de uma regra gramatical no topo da pilha, substituindo-o pelo não-terminal correspondente (Reduce).
+- Sem Deslocamento e Redução: O analisador precisaria realizar busca com retrocesso (backtracking) exaustivo para reconstruir a árvore ascendente.
+- Impacto: A mecânica de Shift/Reduce permite a análise determinística em tempo linear $O(n)$, enquanto a sua ausência resulta em baixíssimo desempenho e mensagens de erro confusas causadas por tentativas frustradas de retrocesso.
+
+15. Complexidade da análise sintática
+Explique “Complexidade da análise sintática” para um colega usando uma definição, um exemplo autoral e uma relação com outro conceito da aula.
+R:
+- Definição: Refere-se à quantidade de recursos computacionais (tempo e memória) necessários para analisar a estrutura sintática de um programa. Para gramáticas genéricas a complexidade é $O(n^3)$, mas para gramáticas restringidas (LL e LR) atinge eficiência linear $O(n)$.
+- Exemplo autoral: Processar um arquivo de código com 10.000 tokens leva milissegundos em $O(n)$, enquanto em $O(n^3)$ exigiria bilhões de operações.
+- Relação com outro conceito: Relaciona-se com Gramáticas Livres de Contexto (GLC), pois impomos restrições às GLCs justamente para garantir analisadores de complexidade linear $O(n)$.
+
+16. Análise Sintática Descendente Recursiva
+Aplique “Análise Sintática Descendente Recursiva” a um pequeno trecho de entrada ou gramática criado por você. Explique o resultado passo a passo e indique como verificaria se ele está correto.
+R:
+- Aplicação: Entrada `a + b` para a gramática:
+  `Expr -> Termo RestoExpr`
+  `RestoExpr -> + Termo RestoExpr | ε`
+  `Termo -> id`
+- Passo a passo do resultado:
+  1. A função `Expr()` é chamada e invoca `Termo()`.
+  2. `Termo()` verifica e consome o token `id` (`a`).
+  3. `Expr()` chama `RestoExpr()`, que observa o token `+`, consome-o e invoca `Termo()`.
+  4. `Termo()` verifica e consome o token `id` (`b`).
+  5. `RestoExpr()` chama a si mesma, observa o fim da entrada (EOF) e seleciona a produção vazia (`ε`).
+- Verificação de correção: Acompanhar o fluxo de execução das funções recursivas através de um depurador (debugger) e verificar se todas as funções retornam sucesso sem disparar exceções de sintaxe.
+
+17. FNBE para expressões simples
+Analise o erro conceitual: alguém tratou “FNBE para expressões simples” como uma etapa isolada, sem relação com a entrada ou com as demais etapas. Explique o problema e reescreva a conclusão.
+R:
+- Erro conceitual: Tratar a Forma de Naur-Backus Estendida (FNBE/EBNF) para expressões como uma fase de execução do compilador.
+- Explicação do problema: A FNBE é uma notação sintática conveniente (que utiliza `{}` para repetição e `[]` para opcionalidade) usada para simplificar a escrita da gramática. Ela não é um módulo executável, mas o modelo formal que orienta a implementação dos procedimentos de parsing.
+- Conclusão reescrita: A FNBE para expressões simples é a especificação gramatical simplificada que orienta a construção dos métodos do analisador sintático, não um passo de execução isolado.
+
+18. Processamento do lado direito de uma regra
+Construa um exemplo mínimo que demonstre “Processamento do lado direito de uma regra”. Identifique a entrada, a decisão realizada e a saída esperada.
+R:
+- Entrada: Regra `A -> B c D` e o fluxo de tokens na entrada.
+- Decisão realizada: No procedimento da regra `A`, o parser decide chamar iterativamente a função `B()`, depois verificar e consumir o terminal `'c'`, e por fim chamar a função `D()`.
+- Saída esperada: Confirmação de que a sequência da entrada casou perfeitamente com os elementos do lado direito da produção `A`.
+
+19. Convenção de nextToken
+Compare o comportamento de um analisador com e sem considerar “Convenção de nextToken”. Aponte o impacto no reconhecimento ou no diagnóstico.
+R:
+- Com convenção `nextToken`: O próximo token da entrada já está pré-carregado na variável global/membro `nextToken` antes da entrada em qualquer procedimento sintático.
+- Sem convenção `nextToken`: Cada procedimento precisa solicitar manualmente a leitura do próximo token ao analisador léxico.
+- Impacto: A convenção reduz a redundância de código e evita desalinhamentos ou leituras duplicadas de tokens dentro das funções de parsing.
+
+20. Lookahead
+Explique “Lookahead” para um colega usando uma definição, um exemplo autoral e uma relação com outro conceito da aula.
+R:
+- Definição: Lookahead é o número de tokens à frente no fluxo de entrada que o analisador sintático pode consultar (sem consumir) para decidir qual regra de produção aplicar.
+- Exemplo autoral: Em um parser com lookahead de 1 token, ao encontrar a instrução `x = 1;` vs `x();`, o parser lê o token `x` e consulta o próximo token (`=` ou `(`) para decidir se chama o procedimento de atribuição ou de chamada de função.
+- Relação com outro conceito: Relaciona-se com a Análise Sintática Descendente Recursiva, pois o lookahead adequado permite que o parser tome decisões determinísticas sem a necessidade de retrocesso (backtracking).
+
+21. Recursão à esquerda
+Aplique “Recursão à esquerda” a um pequeno trecho de entrada ou gramática criado por você. Explique o resultado passo a passo e indique como verificaria se ele está correto.
+R:
+- Aplicação: Regra gramatical `A -> A + B | id`.
+- Passo a passo do resultado:
+  1. Em um parser descendente recursivo, essa regra é traduzida na função `void A() { A(); match('+'); B(); }`.
+  2. Ao ser invocada, a função `A()` chama a si própria imediatamente antes de consumir qualquer token.
+  3. Isso gera uma recursão infinita e causa estouro de pilha (stack overflow).
+  4. Correção: A gramática deve ser reescrita eliminando a recursão à esquerda: `A -> id A'` e `A' -> + B A' | ε`.
+- Verificação de correção: Executar o parser refatorado com a entrada `id + B + B` e verificar se a execução conclui normalmente sem estouro de pilha.
+
+22. FIRST
+Analise o erro conceitual: alguém tratou “FIRST” como uma etapa isolada, sem relação com a entrada ou com as demais etapas. Explique o problema e reescreva a conclusão.
+R:
+- Erro conceitual: Tratar o conjunto `FIRST` como uma fase de execução em tempo de compilação.
+- Explicação do problema: O conjunto `FIRST(lpha)` é uma propriedade matemática calculada durante a fase de projeto da gramática que indica os símbolos terminais que podem iniciar cadeias derivadas de `lpha`. Ele é usado para preencher tabelas de análise ou orientar as decisões condicionais do parser.
+- Conclusão reescrita: O conjunto `FIRST` é um instrumental teórico pré-calculado que permite ao analisador sintático tomar decisões determinísticas de parsing com base no token de lookahead.
+
+23. Teste de Disjunção par a par
+Construa um exemplo mínimo que demonstre “Teste de Disjunção par a par”. Identifique a entrada, a decisão realizada e a saída esperada.
+R:
+- Entrada: Regra de produção `A -> α | β`, onde `FIRST(α) = { id, num }` e `FIRST(β) = { if }`.
+- Decisão realizada: Avaliar se a intersecção dos conjuntos `FIRST` das alternativas da regra é vazia: `{ id, num } ∩ { if } = ∅`.
+- Saída esperada: Teste aprovado (conjuntos disjuntos), garantindo que a gramática satisfaz a condição $LL(1)$ para esta produção e permitindo parsing determinístico sem ambiguidade.

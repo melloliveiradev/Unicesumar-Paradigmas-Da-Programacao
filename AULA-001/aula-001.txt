@@ -1,0 +1,175 @@
+Nome: Filipe Mello de Oliveira
+RA: 24159233-2
+Aula: -001
+
+1. Razões para estudar conceitos de LP
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como "Razões para estudar conceitos de LP" deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Permite avaliar a linguagem além de preferências pessoais, analisando expressividade, capacidade de escrita, confiabilidade e facilidade de manutenção para as necessidades reais do projeto.
+- Consequência concreta: Escolher a linguagem adequada reduz o tempo de desenvolvimento e diminui sensivelmente a ocorrência de bugs em produção.
+
+2. Domínios de Programação
+Procure o erro: alguém afirmou que não é preciso considerar "Domínios de Programação" quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: Ignorar o domínio de aplicação pode fazer com que o sistema use uma linguagem inadequada para aquele tipo de problema, gerando baixa performance, falta de bibliotecas específicas e custos altos de manutenção a longo prazo.
+- Reescrita da conclusão: Mesmo que o código funcione, é fundamental considerar o domínio de programação para garantir que a linguagem ofereça o ecossistema, o desempenho e a produtividade ideais para aquele tipo de aplicação.
+
+3. Critérios de Avaliação de Linguagem
+Sugira uma abordagem para avaliar "Critérios de Avaliação de Linguagem" durante uma revisão técnica. Apresente o critério usado e uma evidência que sustentaria sua recomendação.
+R:
+- Abordagem: Comparar as opções de linguagem definindo pesos para critérios essenciais do projeto (como legibilidade, confiabilidade e custo) e validando através de protótipos rápidos.
+- Critério usado: Confiabilidade.
+- Evidência sustentadora: Presença de verificação rigorosa de tipos e tratamento nativo de exceções, demonstrando menor taxa de falhas em testes de estresse.
+
+4. Legibilidade
+Compare duas alternativas hipotéticas sob a perspectiva de "Legibilidade". Indique em que cenário cada alternativa faria mais sentido.
+R:
+- Alternativa A (Sintaxe enxuta e simbólica): Muito legível para especialistas e matemáticos. Faz mais sentido em sistemas de computação científica ou algoritmos matemáticos complexos.
+- Alternativa B (Sintaxe clara e parecida com linguagem natural): Muito legível para grandes equipes e iniciantes. Faz mais sentido em sistemas corporativos e comerciais com alta rotatividade de desenvolvedores.
+
+5. Ortogonalidade
+Você precisa defender uma decisão profissional relacionada a "Ortogonalidade". Estruture uma justificativa curta com contexto, critério e trade-off.
+R:
+- Contexto: Escolha de uma linguagem para o desenvolvimento de um sistema bancário crítico.
+- Critério: Alta ortogonalidade, permitindo combinar poucos conceitos fundamentais de forma consistente sem exceções arbitrárias.
+- Trade-off: Facilita o aprendizado e a previsibilidade do código, mas pode permitir combinações incomuns que dificultam a otimização pelo compilador.
+
+6. Capacidade de escrita
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como "Capacidade de escrita" deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Avalia a facilidade e rapidez com que os desenvolvedores conseguem traduzir a lógica de negócio em código funcional.
+- Consequência concreta: Uma alta capacidade de escrita reduz o tempo de lançamento (time-to-market) do produto, embora possa impactar a legibilidade se o código for sinteticamente muito denso.
+
+7. Suporte para abstração
+Procure o erro: alguém afirmou que não é preciso considerar "Suporte para abstração" quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: Código que funciona sem boas abstrações torna-se rígido, acoplado e extremamente difícil de reutilizar ou evoluir quando novas funcionalidades forem exigidas.
+- Reescrita da conclusão: O suporte para abstração deve ser considerado desde o início, pois permite ocultar detalhes de implementação e modularizar o código, garantindo escalabilidade e facilidade de manutenção.
+
+8. Expressividade
+Sugira uma abordagem para avaliar “Expressividade” durante uma revisão técnica. Apresente o critério usado e uma evidência que sustentaria sua recomendação.
+R:
+- Abordagem: Medir a quantidade de código e a clareza necessária para implementar operações complexas ou rotineiras da aplicação.
+- Critério usado: Concisão e clareza de operadores/estruturas.
+- Evidência sustentadora: A capacidade de processar e filtrar coleções de dados complexas em poucas linhas claras, reduzindo o código repetitivo (boilerplate).
+
+9. Confiabilidade
+Compare duas alternativas hipotéticas sob a perspectiva de “Confiabilidade”. Indique em que cenário cada alternativa faria mais sentido.
+R:
+- Alternativa A (Linguagem com tipagem estática forte e sem ponteiros manuais): Alta confiabilidade. Faz mais sentido em sistemas críticos, como softwares médicos ou financeiros.
+- Alternativa B (Linguagem com tipagem dinâmica e manipulação flexível de dados): Menor confiabilidade nativa, mas alta agilidade. Faz mais sentido em protótipos rápidos e scripts de automação simples.
+
+10. Verificação de tipos
+Você precisa defender uma decisão profissional relacionada a “Verificação de tipos”. Estruture uma justificativa curta com contexto, critério e trade-off.
+R:
+- Contexto: Desenvolvimento de uma API backend para transações financeiras.
+- Critério: Verificação de tipos estática em tempo de compilação.
+- Trade-off: Detecta erros de tipo antes da execução aumentando a segurança, mas exige mais tempo de compilação e escrita inicial de código mais verboso.
+
+11. Manipulação de exceções
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como “Manipulação de exceções” deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Avalia se a linguagem oferece mecanismos nativos para capturar e tratar erros em tempo de execução de forma estruturada.
+- Consequência concreta: Uma linguagem com bom suporte a exceções impede que o sistema caia inesperadamente diante de falhas pontuais (como falha de rede ou dados inválidos), aumentando a disponibilidade.
+
+12. Aliasing (apelidos)
+Procure o erro: alguém afirmou que não é preciso considerar “Aliasing (apelidos)” quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: Ter múltiplos nomes ou referências apontando para o mesmo local de memória pode gerar efeitos colaterais indesejados e bugs extremamente difíceis de rastrear.
+- Reescrita da conclusão: É essencial considerar os riscos de aliasing, pois modificações inadvertidas em uma referência podem alterar o estado de outra parte da aplicação sem o conhecimento do desenvolvedor.
+
+13. Custo
+Sugira uma abordagem para avaliar “Custo” durante uma revisão técnica. Apresente o critério usado e uma evidência que sustentaria sua recomendação.
+R:
+- Abordagem: Avaliar o custo total do ciclo de vida (TCO), incluindo treinamento da equipe, tempo de compilação/desenvolvimento, consumo de infraestrutura e manutenção.
+- Critério usado: Custo de manutenção e infraestrutura.
+- Evidência sustentadora: Relatórios mostrando que linguagens com compiladores eficientes e fácil manutenção reduziram os gastos com servidores em nuvem e horas de depuração.
+
+14. Portabilidade e generalidade
+Compare duas alternativas hipotéticas sob a perspectiva de “Portabilidade e generalidade”. Indique em que cenário cada alternativa faria mais sentido.
+R:
+- Alternativa A (Linguagem portátil e de uso geral): Roda em múltiplos sistemas operacionais e serve para diversos fins. Faz mais sentido para softwares multiplataforma e APIs corporativas.
+- Alternativa B (Linguagem especializada/DSL para uma plataforma específica): Pouco portátil, mas hiper-otimizada para aquele ambiente. Faz mais sentido para automação de hardware específico ou scripts de configuração de determinado sistema.
+
+15. Influências no Projeto de Linguagens
+Você precisa defender uma decisão profissional relacionada a “Influências no Projeto de Linguagens”. Estruture uma justificativa curta com contexto, critério e trade-off.
+R:
+- Contexto: Definição da arquitetura de software para um sistema distribuído.
+- Critério: Considerar o impacto da arquitetura de computador (hardware) e das metodologias de programação no desenho da linguagem.
+- Trade-off: Escolher uma linguagem alinhada ao hardware garante alto desempenho, mas limita a abstração em relação aos detalhes da máquina.
+
+16. Arquitetura de von Neumann
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como “Arquitetura de von Neumann” deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Avaliar como a linguagem lida com a separação entre memória e CPU (gargalo de von Neumann), influenciando o uso de laços imperativos e modificação de variáveis.
+- Consequência concreta: Escolher linguagens imperativas tradicionais otimiza a execução direta nessa arquitetura, mas exige cuidados extras ao trabalhar com concorrência e estado compartilhado.
+
+17. Ciclo de busca-decodifica-executa
+Procure o erro: alguém afirmou que não é preciso considerar "Ciclo de busca-decodifica-executa" quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: Ignorar o ciclo de instrução do processador pode levar à escrita de códigos ineficientes que causam travamentos e alto consumo de CPU em sistemas de alto desempenho.
+- Reescrita da conclusão: Entender o ciclo de busca-decodifica-executa é importante para otimizar trechos críticos de código, reduzindo saltos desnecessários e melhorando a eficiência do processador.
+
+18. Metodologias de Projeto de Software
+Sugira uma abordagem para avaliar "Metodologias de Projeto de Software" durante uma revisão técnica. Apresente o critério usado e uma evidência que sustentaria sua recomendação.
+R:
+- Abordagem: Verificar se a linguagem de programação suporta nativamente a evolução das metodologias adotadas pela empresa (como Orientação a Objetos, Desenvolvimento Orientado a Testes ou Microsserviços).
+- Critério usado: Suporte à modularidade e orientação a objetos/componentes.
+- Evidência sustentadora: A facilidade de desacoplar módulos e criar testes unitários isolados sem necessidade de adaptações complexas na estrutura do código.
+
+19. Categorias de Linguagens
+Compare duas alternativas hipotéticas sob a perspectiva de "Categorias de Linguagens". Indique em que cenário cada alternativa faria mais sentido.
+R:
+- Alternativa A (Linguagem Imperativa/Orientada a Objetos): Focada em passos sequenciais e controle de estado. Faz mais sentido em aplicações comerciais tradicionais e desenvolvimento desktop/mobile.
+- Alternativa B (Linguagem Declarativa/Funcional ou Lógica): Focada no "o que" resolver através de funções puras ou regras de inferência. Faz mais sentido em processamento de dados em grande escala ou sistemas de inteligência artificial e provadores de teoremas.
+
+20. Trade-off no projeto de linguagem
+Você precisa defender uma decisão profissional relacionada a "Trade-off no projeto de linguagem". Estruture uma justificativa curta com contexto, critério e trade-off.
+R:
+- Contexto: Escolha entre C++ e Python para um sistema de visão computacional.
+- Critério: Equilíbrio entre velocidade de execução e tempo de desenvolvimento.
+- Trade-off: Optar por C++ oferece máxima velocidade de execução, mas exige maior tempo de desenvolvimento e gerenciamento manual de recursos.
+
+21. Métodos de Implementação
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como "Métodos de Implementação" deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Analisar se a linguagem é compilada, interpretada ou usa máquina virtual/JIT para ver se atende aos requisitos de implantação e velocidade.
+- Consequência concreta: Optar por uma linguagem compilada direta para código de máquina garante inicialização instantânea e menor uso de memória em contêineres.
+
+22. Compilação
+Procure o erro: alguém afirmou que não é preciso considerar "Compilação" quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: A compilação afeta diretamente o tempo de build, a detecção antecipada de erros de sintaxe/tipo e a eficiência do código final executável.
+- Reescrita da conclusão: É crucial considerar a etapa de compilação, pois ela garante a otimização do código final e previne que erros graves alcancem o ambiente de execução.
+
+23. Interpretação pura
+Sugira uma abordagem para avaliar "Interpretação pura" durante uma revisão técnica. Apresente o critério usado e uma evidência que sustentaria sua recomendação.
+R:
+- Abordagem: Avaliar se a necessidade de depuração rápida e execução instrução por instrução se sobrepõe à necessidade de alta performance.
+- Critério usado: Flexibilidade de execução e prototipagem.
+- Evidência sustentadora: Facilidade de testar e alterar comandos em tempo real sem a etapa intermediária de compilação, ideal para scripts rápidos.
+
+24. Sistemas de Implementação Híbridos
+Compare duas alternativas hipotéticas sob a perspectiva de "Sistemas de Implementação Híbridos". Indique em que cenário cada alternativa faria mais sentido.
+R:
+- Alternativa A (Sistema Híbrido com Bytecode e Máquina Virtual): Traduz para um código intermediário e roda numa VM (ex: Java/C#). Faz mais sentido para sistemas empresariais que buscam equilíbrio entre portabilidade e bom desempenho.
+- Alternativa B (Interpretação Pura): Faz mais sentido em ambientes educacionais, pequenos scripts de automação ou linguagens de comando de terminal.
+
+25. Sistemas de Implementação Just in Time
+Você precisa defender uma decisão profissional relacionada a "Sistemas de Implementação Just in Time". Estruture uma justificativa curta com contexto, critério e trade-off.
+R:
+- Contexto: Servidor web de alta carga com execuções prolongadas.
+- Critério: Compilação JIT para traduzir bytecode em código de máquina durante a execução dos trechos mais usados (hotspots).
+- Trade-off: Entrega um desempenho próximo ao de código nativo compilado, mas consome mais memória e causa um pequeno tempo de aquecimento (warm-up) na inicialização.
+
+26. Pré-processadores
+Caso prático: uma equipe precisa escolher uma linguagem para um novo sistema. Mostre como "Pré-processadores" deve entrar na análise e indique uma consequência concreta da decisão.
+R:
+- Como entra na análise: Avaliar a dependência de substituições de texto e macros antes da compilação real do código.
+- Consequência concreta: O uso excessivo de pré-processadores pode dificultar a depuração (debugging) e mascarar erros de tipo, reduzindo a confiabilidade do software.
+
+27. Ambientes de Programação
+Procure o erro: alguém afirmou que não é preciso considerar "Ambientes de Programação" quando o código já funciona. Identifique o problema desse raciocínio e reescreva a conclusão.
+R:
+- Problema do raciocínio: O ambiente de programação (IDEs, ferramentas de build, linters, debuggers) impacta diretamente a produtividade, a padronização e a velocidade da equipe no dia a dia.
+- Reescrita da conclusão: Um ambiente de programação robusto deve sempre ser considerado, pois ele automatiza tarefas repetitivas, facilita o debugging e acelera o ciclo de desenvolvimento da equipe.

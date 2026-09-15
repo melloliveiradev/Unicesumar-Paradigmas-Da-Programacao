@@ -1,0 +1,143 @@
+Filipe Mello de Oliveira
+RA: 24159233-2
+Aula: aula-002
+
+1. A genealogia das linguagens não é uma escada de progresso.
+Explique essa afirmação e apresente dois fatores históricos que fazem uma linguagem influenciar outra sem necessariamente substituí-la.
+R:
+- Explicação: As linguagens de programação não evoluem em uma linha única onde cada novidade torna as anteriores obsoletas; elas se adaptam a diferentes paradigmas, hardware e problemas específicos.
+- Fator 1: Mudança de contexto e domínio (ex: a emergência da Web exigiu linguagens com foco em dinamismo e scripts, resgatando e adaptando ideias antigas sem substituir linguagens de sistemas).
+- Fator 2: Adoção de recursos sintáticos/semânticos consolidados (ex: C influenciou a sintaxe de C++, Java e C#, permanecendo viva e insubstituível em seu próprio domínio de baixo nível).
+
+2. Plankalkül não foi implementada em sua época. Ainda assim, por que ela é relevante para a história das linguagens? Cite três recursos antecipados por seu projeto e explique o valor de um deles.
+R:
+- Relevância histórica: Foi o primeiro projeto de linguagem de programação de alto nível do mundo, desenhado por Konrad Zuse entre 1942 e 1945.
+- Três recursos antecipados:
+  1. Estruturas de dados complexas e hierárquicas (matrizes e registros).
+  2. Estruturas condicionais orientadas por máscaras e atribuições.
+  3. Iterações e laços de repetição.
+- Valor de um recurso: O suporte a estruturas de dados complexas permitiu projetar abstrações sobre dados antes mesmo que o hardware possuísse representação física direta para elas.
+
+3. Compare Short Code, Speedcoding e os sistemas A-0/A-1/A-2 quanto ao problema enfrentado e à estratégia adotada. Por que chamá-los simplesmente de compiladores modernos seria impreciso?
+R:
+- Problema enfrentado: A extrema dificuldade, lentidão e propensão a erros de programar computadores diretamente em código de máquina binário/octal sem suporte nativo a ponto flutuante.
+- Estratégia adotada:
+  - Short Code e Speedcoding: Usavam interpretação de pseudo-códigos numéricos via software para simular instruções aritméticas complexas.
+  - Sistemas A (A-0/A-1/A-2): Usavam tradutores que expandiam rotinas pré-compiladas (macros) a partir de pseudocódigos.
+- Por que é impreciso chamá-los de compiladores modernos: Eles não realizavam análise sintática/semântica completa nem otimização global de código; operavam como interpretadores lentos ou montadores de subrotinas.
+
+4. Explique por que o projeto Fortran precisou convencer programadores de que código traduzido podia competir com código de máquina escrito à mão. Relacione desempenho, custo de programação e adoção.
+R:
+- Explicação: Na época, os programadores acreditavam que nenhum tradutor automático geraria um código tão rápido e enxuto quanto o assembly feito manualmente.
+- Relação:
+  - Desempenho: O compilador Fortran teve que focar obsessivamente em otimização para provar eficiência equivalente ao código manual.
+  - Custo de programação: Ao garantir desempenho alto, provou-se que o tempo e o custo para escrever programas caíam drasticamente.
+  - Adoção: A redução de custos aliada ao alto desempenho viabilizou a aceitação massiva da linguagem pela comunidade científica.
+
+5. Lisp surgiu em um contexto diferente de Fortran. Compare os domínios, a representação de dados e o estilo de computação favorecido pelas duas linguagens.
+R:
+- Domínios: Fortran focou no cálculo científico e numérico; Lisp focou em inteligência artificial e processamento simbólico.
+- Representação de dados: Fortran usava vetores, matrizes e tipos numéricos estáticos; Lisp usava listas encadeadas dinâmicas e átomos.
+- Estilo de computação: Fortran favorecia o estilo imperativo/procedural (laços e alteração de estado); Lisp favorecia a programação funcional (recursão e avaliação de expressões).
+
+6. Avalie três contribuições de ALGOL 60 que ultrapassaram sua adoção comercial. Por que uma linguagem pode ser muito influente sem dominar o mercado?
+R:
+- Três contribuições:
+  1. Formalização da sintaxe de linguagens utilizando BNF (Backus-Naur Form).
+  2. Introdução de estrutura de blocos e escopo de variáveis locais.
+  3. Suporte a recursão e passagem de parâmetros por valor e por nome.
+- Por que pode ser influente sem dominar: Porque suas inovações conceituais moldam o ensino acadêmico e servem de modelo para futuras linguagens comercialmente bem-sucedidas, mesmo que faltasse a ela suporte corporativo de peso (como a IBM).
+
+7. COBOL foi desenhada para processamento comercial. Mostre como domínio e público influenciaram sua legibilidade, seus registros e sua relação com FLOW-MATIC.
+R:
+- Legibilidade: Desenhada para administradores e analistas de negócios, adotou uma sintaxe extremamente verbosa, semelhante ao inglês falado.
+- Registros: Introduziu explicitamente a noção de tipos de dados estruturados e hierárquicos (registros e campos) para manipular relatórios comerciais.
+- Relação com FLOW-MATIC: Herdou diretamente de FLOW-MATIC (de Grace Hopper) o conceito de usar palavras em inglês em vez de símbolos matemáticos para definir instruções.
+
+8. Compare Basic e PL/I como respostas ao desejo de ampliar o acesso ou o alcance da programação. Qual compromisso de projeto aparece em cada caso?
+R:
+- Basic (Ampliar Acesso): Desenhado para estudantes e não-especialistas em ambientes compartilhados. Compromisso: Priorizou extrema simplicidade e facilidade de aprendizado, sacrificando estruturação e recursos avançados.
+- PL/I (Ampliar Alcance): Desenhado para unificar a computação científica (Fortran) e comercial (COBOL). Compromisso: Tentou incluir todos os recursos possíveis em uma só linguagem, sacrificando a simplicidade e gerando extrema complexidade e compiladores difíceis.
+
+9. APL, SNOBOL e SIMULA 67 seguiram direções distintas. Associe cada linguagem ao seu foco e identifique uma contribuição duradoura de cada uma.
+R:
+- APL: Foco em manipulação de matrizes e vetores. Contribuição: Operadores de array altamente expressivos (influenciou NumPy e R).
+- SNOBOL: Foco em manipulação de texto e padrões de caracteres. Contribuição: Conceito avançado de pattern matching e processamento de strings (antecipou expressões regulares).
+- SIMULA 67: Foco em simulação de eventos discretos. Contribuição: Introdução dos conceitos fundamentais de Orientação a Objetos (classes, objetos e herança).
+
+10. Defina ortogonalidade no projeto de linguagens e use ALGOL 68 para discutir a diferença entre regularidade e simplicidade. Uma linguagem muito ortogonal é automaticamente fácil de usar?
+R:
+- Definição de Ortogonalidade: Capacidade de combinar um conjunto pequeno de construções primitivas em qualquer combinação válida, sem exceções arbitrárias.
+- Regularidade vs Simplicidade em ALGOL 68: A linguagem buscou regularidade total ao permitir que qualquer tipo funcionasse com qualquer operador, mas essa ausência de restrições tornou a sintaxe extremamente complexa e obscura, destruindo a simplicidade.
+- Muito ortogonal é fácil de usar?: Não. A ortogonalidade excessiva pode gerar combinatória confusa, dificultar a leitura do código e complicar a implementação do compilador.
+
+11. Construa uma cadeia de influência que passe por ALGOL, Pascal e C. Depois contraste essa linhagem imperativa com a proposta declarativa de Prolog.
+R:
+- Cadeia de influência: ALGOL 60 (estruturas de blocos e controle) -> Pascal (estruturação rigorosa e tipagem forte) -> C (eficiência imperativa, acesso direto à memória e ponteiros).
+- Contraste com Prolog: A linhagem ALGOL/Pascal/C é imperativa (o programador descreve *como* o computador deve alterar a memória passo a passo); Prolog é declarativo/lógico (o programador descreve *o que* é verdadeiro via fatos e regras, e o sistema deduce a solução).
+
+12. Modele em linguagem natural uma pequena base Prolog com dois fatos, uma regra e uma consulta. Explique por que isso representa programação lógica, não apenas armazenamento de dados.
+R:
+- Fatos: (1) João é pai de Maria. (2) Maria é mãe de Ana.
+- Regra: X é avô de Y se X for pai de Z e Z for pai ou mãe de Y.
+- Consulta: João é avô de Ana?
+- Por que é programação lógica: Não é apenas busca de dados; o sistema possui um motor de inferência que aplica regras lógicas para deduzir novos fatos não explícitos.
+
+13. Ada resultou de requisitos e projeto em grande escala. Analise como confiabilidade, tipos, pacotes e concorrência se relacionam ao domínio de sistemas críticos.
+R:
+- Confiabilidade: Exigência central do Departamento de Defesa dos EUA para evitar falhas em softwares embarcados militares e aeroespaciais.
+- Tipos: Verificação estática rigorosa e suporte a subintervalos previnem estouros de memória e atribuições incorretas.
+- Pacotes: Permitem forte encapsulamento e modularização de grandes sistemas.
+- Concorrência: Suporte nativo a tarefas (tasks) e sincronização (rendezvous) essencial para controle de sistemas em tempo real.
+
+14. Compare o papel dos objetos em Smalltalk, C++ e Java. Inclua na resposta o compromisso de C++ com C e a estratégia de portabilidade de Java.
+R:
+- Smalltalk: Orientação a objetos pura. Tudo é um objeto e a comunicação ocorre exclusivamente via troca de mensagens.
+- C++: Orientação a objetos híbrida. Manteve compatibilidade total com C para garantir alto desempenho, permitindo código estruturado tradicional junto a objetos.
+- Java: Orientação a objetos simplificada sem ponteiros manuais. Garantia de portabilidade através da compilação para Bytecode executado na Máquina Virtual Java (JVM).
+
+15. A primeira aplicação de Java não foi a Web, mas a Web impulsionou sua adoção. Explique como mudanças de contexto podem reposicionar uma linguagem.
+R:
+- Explicação: Java (inicialmente chamado Oak) foi criado para dispositivos eletrônicos embarcados (como set-top boxes), mercado que não engrenou na época. Com a explosão da Web, a necessidade de rodar código seguro e dinâmico nos navegadores (Applets) fez com que a arquitetura portátil de Bytecode + JVM do Java se encaixasse perfeitamente no novo contexto.
+
+16. Compare Perl, JavaScript, PHP, Python, Ruby e Lua usando três eixos: domínio inicial, estruturas de dados e estratégia de implementação. Evite concluir que todas são iguais por serem chamadas de scripting.
+R:
+- Perl: Domínio = Processamento de texto e relatórios Unix; Estruturas = Escalares, arrays e hashes; Implementação = Interpretador compilado para bytecode interno.
+- JavaScript: Domínio = Automação de scripts no cliente web (browser); Estruturas = Objetos baseados em protótipos e arrays; Implementação = Interpretada/JIT (V8, SpiderMonkey).
+- PHP: Domínio = Criação de páginas web dinâmicas no servidor; Estruturas = Arrays associativos unificados; Implementação = Interpretada via motor Zend.
+- Python: Domínio = Scripting de uso geral e ensino; Estruturas = Listas, dicionários, tuplas e conjuntos; Implementação = Compilada para bytecode (CPython VM).
+- Ruby: Domínio = Scripting de uso geral e OO pura; Estruturas = Objetos, hashes e arrays; Implementação = Interpretada em bytecode (YARV).
+- Lua: Domínio = Extensão e embarcamento leve em aplicações C/C++; Estruturas = Tabelas associativas (estrutura única flexível); Implementação = VM de bytecode ultra-leve.
+
+17. C# foi apresentada como evolução no ambiente .NET. Compare duas decisões de C# com suas correspondentes em Java ou C++ e explique o problema que pretendem resolver.
+R:
+- Decisão 1 (Propriedades nativas): Em vez de métodos `get/set` manuais como em Java/C++, C# criou sintaxe nativa de propriedades, reduzindo código repetitivo e padronizando o acesso a atributos.
+- Decisão 2 (Delegates e Eventos): Em vez de ponteiros de função inseguros (C++) ou classes anônimas verbosas (Java), C# introduziu delegates seguros (type-safe) para tratar programação baseada em eventos.
+
+18. Diferencie XSLT e JSP quanto a entrada, processamento e saída. Por que ambas podem ser chamadas de linguagens híbridas de marcação e programação?
+R:
+- XSLT: Entrada = Documento XML; Processamento = Transformação declarativa baseada em regras de modelo; Saída = XML, HTML ou Texto.
+- JSP: Entrada = Requisição HTTP com marcação HTML e código Java; Processamento = Execução imperativa no servidor (convertida em Servlet Java); Saída = Documento HTML dinâmico.
+- Por que são híbridas: Ambas mesclam estruturação de dados/marcação (tags XML/HTML) com lógica programática de controle e processamento.
+
+19. Crie uma linha do tempo com oito linguagens de pelo menos quatro paradigmas. Para cada ligação, escreva o tipo de influência; não use apenas setas cronológicas.
+R:
+1. Fortran (1957, Imperativo) -> [influenciou a estrutura de comandos e compilação em] ->
+2. ALGOL 60 (1960, Imperativo/Blocos) -> [forneceu a sintaxe estruturada e escopo para] ->
+3. SIMULA 67 (1967, Orientado a Objetos) -> [introduziu classes e objetos que inspiraram] ->
+4. Smalltalk (1980, OO Puro) -> [consolidou a OO pura e mensagem, influenciando] ->
+5. C (1972, Imperativo/Sistemas) -> [forneceu eficiência de baixo nível e sintaxe base que, unida a SIMULA 67, gerou] ->
+6. C++ (1983, OO Híbrido) -> [influenciou a sintaxe e a execução gerenciada de] ->
+7. Java (1995, OO/Bytecode)
+8. Lisp (1958, Funcional) -> [paradigma paralelo que influenciou a criação do modo declarativo em] -> Prolog (1972, Lógico).
+
+20. Estudo de caso: uma equipe precisa escolher tecnologias para cálculo científico, regras declarativas, aplicação Web interativa e firmware restrito. Proponha famílias de linguagens, justifique historicamente cada escolha e explicite dois trade-offs.
+R:
+- Escolhas e justificativas históricas:
+  - Cálculo científico: Fortran / Python (NumPy) — Tradição histórica em otimização de matrizes e computação numérica de alto desempenho.
+  - Regras declarativas: Prolog — Projetada historicamente para inferência lógica e resolução de problemas por restrições.
+  - Aplicação Web interativa: JavaScript / TypeScript — Linguagem padrão adotada pelos navegadores para execução interativa no cliente.
+  - Firmware restrito: C / C++ — Criadas com foco em eficiência de hardware, ausência de garbage collector e acesso direto à memória.
+- Dois trade-offs:
+  1. Desempenho vs Tempo de Desenvolvimento: Escolher C/Fortran garante máxima velocidade de execução, mas exige maior tempo de escrita comparado a Python/JavaScript.
+  2. Segurança de Tipos vs Flexibilidade: Linguagens com tipagem dinâmica/web (como JS) aceleram protótipos, mas podem introduzir bugs em tempo de execução que compiladores estáticos (C/C++) evitariam.

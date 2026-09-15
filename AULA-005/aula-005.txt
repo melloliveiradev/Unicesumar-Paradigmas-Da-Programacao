@@ -1,0 +1,159 @@
+Filipe Mello de Oliveira
+RA: 24159233-2
+Aula: aula-005
+
+1. Linguagens imperativas e arquitetura de von Neumann
+R:
+- Contexto: Um módulo de processamento precisa somar todos os elementos de um vetor de inteiros em memória.
+- Decisão: Declarar a variável `soma = 0` e utilizar um laço `while` que lê cada posição da memória e atualiza sequencialmente a variável `soma`.
+- Consequência Esperada: A execução reflete diretamente a arquitetura de von Neumann, onde instruções e dados trafegam continuamente entre a memória e a CPU através da constante leitura e modificação de células de memória.
+
+2. Nomes
+R:
+- Explicação do problema: Tratar nomes isoladamente ignora que identificadores são o mecanismo primário de abstração para associar atributos fundamentais (endereço, tipo, valor, escopo e tempo de vida) às entidades do programa.
+- Reescrita da conclusão: Nomes não são meros rótulos sintáticos, mas a interface fundamental de abstração que vincula identificadores aos atributos de armazenamento, tipo, escopo e tempo de vida no ciclo de desenvolvimento.
+
+3. Case sensitive
+R:
+- Situação observada: Declaração simultânea das variáveis `int totalVendas = 100;` e `int TotalVendas = 200;` no mesmo bloco de código em C.
+- Aplicação do conceito: A linguagem diferencia caracteres maiúsculos de minúsculos, registrando `totalVendas` e `TotalVendas` como dois identificadores completamente distintos na tabela de símbolos.
+- Conclusão esperada: Serão alocadas duas células de memória independentes, exigindo cuidado do programador para evitar confusão visual e erros de digitação.
+
+4. Palavras especiais
+R:
+- Situação que considera (Palavra reservada): Em C, a tentativa de declarar `int if = 10;` é rejeitada pelo compilador porque `if` é uma palavra reservada restrita a estruturas condicionais.
+- Situação que ignora (Palavra-chave não reservada): Em Fortran 77, `IF` é uma palavra-chave não reservada, permitindo atribuições como `IF (X) = 1.0`, onde `IF` pode ser interpretado como variável dependendo do contexto.
+- Diferença observável: A abordagem com palavras reservadas garante análise sintática unívoca e código legível, enquanto palavras-chave não reservadas exigem compiladores complexos para desambiguar contextos e prejudicam a legibilidade.
+
+5. Variável
+R:
+- Definição: Uma variável é uma abstração de uma célula de memória descrita por uma sextupla de atributos: Nome, Endereço, Tipo, Valor, Escopo e Tempo de Vida.
+- Exemplo autoral: `double temperatura = 36.5;` possui nome (`temperatura`), tipo (`double`), valor (`36.5`), endereço no stack, escopo local e tempo de vida limitado à execução da função.
+- Relação com outro conceito: Relaciona-se com a Arquitetura de von Neumann, pois o endereço de memória armazena o valor manipulado continuamente pelas operações da UCP/ALU.
+
+6. Atributos das variáveis
+R:
+- Contexto: Definição de uma taxa percentual fixa para cálculo de desconto dentro de uma função financeira.
+- Decisão: Declarar `float taxaDesconto = 0.05f;` dentro do corpo da função de cálculo.
+- Consequência Esperada: A variável vincula simultaneamente os seis atributos: Nome (`taxaDesconto`), Tipo (`float`), Endereço (alocado na pilha), Valor (`0.05`), Escopo (local) e Tempo de Vida (duração da execução da função).
+
+7. Apelidos
+R:
+- Explicação do problema: Tratar apelidos (aliasing) isoladamente desconsidera o risco de efeitos colaterais indesejados, onde a alteração do valor através de um nome modifica silenciosamente a célula compartilhada com outro nome.
+- Reescrita da conclusão: O aliasing ocorre quando dois ou mais nomes referenciam o mesmo endereço de memória, comprometendo a rastreabilidade de estado e exigindo controle rigoroso de ponteiros e referências.
+
+8. Vinculação
+R:
+- Situação observada: A instrução `int contador = 0;` presente em um programa durante a compilação.
+- Aplicação do conceito: Ocorre a vinculação estática do tipo `int` e do tamanho de armazenamento (4 bytes) ao identificador `contador`.
+- Conclusão esperada: Estabelece-se uma associação válida entre o nome e suas propriedades de tipo antes da execução do programa, permitindo a checagem estática de tipos.
+
+9. Tempos de vinculação
+R:
+- Situação que considera: Reconhecer que em `const int TAMANHO = 50;` a vinculação do valor ocorre em tempo de compilação, utilizando a constante para dimensionar um arranjo estático.
+- Situação que ignora: Tentar redimensionar dinamicamente a dimensão de um arranjo estático em tempo de execução sem utilizar alocação no heap.
+- Diferença observável: Considerar os tempos de vinculação permite escolher a estrutura de dados adequada (estática vs. dinâmica), evitando erros de compilação e estouro de memória.
+
+10. Vinculação estática e dinâmica
+R:
+- Definição: Vinculação estática ocorre antes da execução (compilação) e permanece inalterada; vinculação dinâmica ocorre durante a execução (runtime) e pode mudar conforme novas atribuições.
+- Exemplo autoral: Em C (estático), `int x = 10;` impede que `x` receba uma string; em Python (dinâmico), `x = 10` vincula `x` a um inteiro e logo após `x = "texto"` altera seu tipo vinculado em runtime.
+- Relação com outro conceito: Relaciona-se com a Checagem de Tipos, onde a vinculação estática oferece detecção antecipada de erros e a dinâmica oferece flexibilidade à custa de desempenho.
+
+11. Declaração Explícita/Implícita
+R:
+- Contexto: Criação de uma variável de controle para iterar sobre um conjunto de dados.
+- Decisão: Optar por declaração explícita `int limite = 100;` em C em vez de declaração implícita `limite = 100` em Python.
+- Consequência Esperada: A declaração explícita permite ao compilador detectar erros de digitação (ex: `limte = 100`), enquanto a implícita traz concisão sintática, mas pode criar variáveis não intencionais por erro de escrita.
+
+12. Inferência de tipo
+R:
+- Explicação do problema: Confundir inferência de tipo com vinculação dinâmica de tipo omite que a inferência é uma vinculação estática realizada pelo compilador com base no valor de inicialização.
+- Reescrita da conclusão: A inferência de tipo é uma forma de vinculação estática na qual o compilador deduz automaticamente o tipo da variável a partir do valor inicial, unindo a segurança da tipagem estática à concisão sintática.
+
+13. Vinculação de Tipos Dinâmica
+R:
+- Situação observada: Execução dos comandos `dado = 50;` seguidos de `dado = [1, 2, 3];` em tempo de execução em JavaScript.
+- Aplicação do conceito: O tipo é vinculado dinamicamente ao objeto/valor atribuído à variável no tempo de execução, e não ao identificador da variável.
+- Conclusão esperada: O programa obtém flexibilidade ao reutilizar o identificador, mas sofre perda de desempenho devido à checagem contínua de tipos em tempo de execução.
+
+14. Vinculações de armazenamento e tempo de vida
+R:
+- Situação que considera: Retornar a cópia de um valor local ao sair de uma função (`int obterValor() { int v = 5; return v; }`).
+- Situação que ignora: Retornar um ponteiro para uma variável local alocada na pilha (`int* obterPonteiro() { int v = 5; return &v; }`).
+- Diferença observável: A primeira abordagem é segura; a segunda gera um ponteiro pendente (dangling pointer), pois a célula de memória local é desalocada ao fim do tempo de vida da função.
+
+15. Variáveis estáticas
+R:
+- Definição: Variáveis cujas células de memória são vinculadas antes do início da execução e permanecem alocadas no mesmo endereço até o término do programa.
+- Exemplo autoral: A declaração `static int contador = 0;` dentro de uma função em C preserva seu valor acumulado entre chamadas sucessivas dessa função.
+- Relação com outro conceito: Relaciona-se com o Tempo de Vida, pois sua duração temporal é global (toda a execução), embora seu Escopo permaneça restrito localmente à função.
+
+16. Variáveis dinâmicas da pilha
+R:
+- Contexto: Processamento recursivo do cálculo do fatorial de um número.
+- Decisão: Declarar as variáveis de parâmetro e resultado como variáveis locais padrão dentro da função recursiva.
+- Consequência Esperada: A memória para essas variáveis é alocada no registro de ativação da pilha (stack frame) a cada chamada da função e liberada automaticamente no retorno, permitindo chamadas recursivas independentes.
+
+17. Variáveis dinâmicas do heap
+R:
+- Explicação do problema: Tratar variáveis do heap sem considerar o uso de ponteiros ou referências ignora a responsabilidade da alocação/desalocação explícita, ocultando falhas graves de vazamento de memória.
+- Reescrita da conclusão: Variáveis dinâmicas do heap são alocadas e desalocadas explicitamente por instruções em tempo de execução, exigindo controle rigoroso de ponteiros para evitar vazamentos de memória e acessos inválidos.
+
+18. Variáveis dinâmicas do heap implícito
+R:
+- Situação observada: Atribuição de novos elementos a um array em JavaScript (`let lista = []; lista[0] = 10; lista[5] = 20;`).
+- Aplicação do conceito: A alocação e o redimensionamento de memória no heap ocorrem automaticamente no runtime à medida que novos valores são atribuídos.
+- Conclusão esperada: Altíssima flexibilidade na expansão de dados em tempo de execução, acompanhada por sobrecarga na gestão de memória e coleta de lixo.
+
+19. Escopo
+R:
+- Situação que considera: Declarar a variável de controle de laço `int i` restrita ao bloco de cada função individual.
+- Situação que ignora: Utilizar uma única variável global `i` para controlar laços de repetição em subprogramas aninhados.
+- Diferença observável: A consideração do escopo garante o isolamento de estado; ignorá-lo provoca erros de colisão de nomes, sobrescrita indevida de dados e laços infinitos.
+
+20. Escopo estático
+R:
+- Definição: Regra em que a visibilidade de nomes é determinada inteiramente em tempo de compilação, com base no aninhamento textual dos blocos do código-fonte.
+- Exemplo autoral: Em C, quando uma função acessa uma variável não local, a busca ocorre no bloco local e, se não encontrada, nos blocos textualmente externos onde a função foi declarada.
+- Relação com outro conceito: Relaciona-se com o Ambiente de Referenciamento Estático, permitindo determinar estaticamente todas as variáveis visíveis sem executar o programa.
+
+21. Ocultação de nomes
+R:
+- Contexto: Reajuste temporário de uma taxa dentro de um bloco condicional específico.
+- Decisão: Redeclarar uma variável local `float taxa = 0.15f;` dentro de um bloco `if` onde já existe uma variável externa de mesmo nome `float taxa = 0.10f;`.
+- Consequência Esperada: A variável local oculta (shadows) a variável externa durante a execução do bloco, fazendo com que o identificador `taxa` faça referência apenas à variável interna.
+
+22. Blocos e ordem de declaração
+R:
+- Explicação do problema: Tratar a ordem de declaração em blocos como irrelevante ignora o início do ambiente de referenciamento e impede a verificação semântica adequada de inicialização.
+- Reescrita da conclusão: A posição e a ordem de declaração dentro de um bloco estabelecem o limite textual preciso a partir do qual um nome passa a ser visível no ambiente de referenciamento, impedindo acessos a identificadores não inicializados.
+
+23. Escopo global
+R:
+- Situação observada: Declaração de `int conexoesAtivas = 0;` fora de qualquer função no topo do arquivo fonte em C.
+- Aplicação do conceito: O identificador `conexoesAtivas` torna-se visível e acessível por todos os subprogramas contidos no arquivo.
+- Conclusão esperada: Facilita o compartilhamento centralizado de estado entre subprogramas, mas reduz a modularidade e aumenta o risco de efeitos colaterais indesejados.
+
+24. Escopo dinâmico
+R:
+- Situação com Escopo Dinâmico: A busca por uma variável não local em um subprograma inspeciona a pilha de chamadas (call stack) ativas no momento do runtime.
+- Situação com Escopo Estático: A busca por uma variável não local inspeciona a estrutura textual do código-fonte onde a função foi declarada.
+- Diferença observável: No escopo dinâmico, o comportamento da função varia dependendo da sequência de chamadas em tempo de execução; no escopo estático, depende exclusivamente da estrutura textual do código.
+
+25. Escopo e tempo de vida
+R:
+- Definição: Escopo é a região textual onde um nome é visível; Tempo de Vida é o intervalo de tempo de execução em que uma variável possui espaço alocado em memória.
+- Exemplo autoral: Uma variável `static int contador = 0;` declarada dentro de uma função em C possui escopo local (visível apenas dentro da função), mas tempo de vida global (permanece alocada durante toda a execução).
+- Relação com outro conceito: Demonstra a Ortogonalidade dos Atributos de Variáveis, provando que o domínio de visibilidade sintática é independente da duração de alocação da célula de memória.
+
+26. Ambiente de referenciamento
+R:
+- Contexto: Avaliação dos dados acessíveis em uma linha específica de instrução dentro de uma função aninhada.
+- Decisão: Mapear a coleção exata de variáveis locais, parâmetros e variáveis de escopos superiores visíveis naquele ponto de execução.
+- Consequência Esperada: O ambiente de referenciamento estabelece os limites exatos de leitura e escrita disponíveis para o programa naquele ponto de instrução.
+
+27. Constantes nomeadas
+R:
+- Explicação do problema: Tratar constantes nomeadas apenas como "variáveis imutáveis" ignora sua vinculação em tempo de compilação, a eliminação de números mágicos e a capacidade de otimização pelo compilador.
+- Reescrita da conclusão: Constantes nomeadas vinculam identificadores a valores inalteráveis (geralmente em tempo de compilação), aumentando a legibilidade, eliminando números mágicos e permitindo otimizações pelo compilador.

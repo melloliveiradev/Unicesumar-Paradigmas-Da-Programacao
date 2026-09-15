@@ -1,0 +1,84 @@
+Filipe Mello de Oliveira
+RA: 24159233-2
+Aula: aula-003
+
+1. Sintaxe e semântica
+Explique “Sintaxe e semântica” com suas palavras e construa um exemplo curto que evidencie o conceito.
+R:
+- Explicação: Sintaxe refere-se às regras formais que definem a estrutura e o formato correto das construções em uma linguagem (o que é uma sentença bem-formada). Semântica refere-se ao significado e ao comportamento atribuído a essa estrutura válida durante a interpretação ou execução.
+- Exemplo: A instrução `int x = "texto";` em C é sintaticamente válida (obedece à estrutura `<tipo> <identificador> = <expressão>;`), porém é semanticamente incorreta (viola a regra semântica de compatibilidade de tipos ao atribuir uma string a uma variável inteira).
+
+2. Sentenças, lexemas e tokens
+Formule uma afirmação incorreta comum sobre “Sentenças, lexemas e tokens”, explique o erro conceitual e apresente a versão corrigida.
+R:
+- Afirmação incorreta: "Tokens e lexemas são exatamente a mesma coisa, apenas termos diferentes para designar as palavras lidas no código fonte."
+- Erro conceitual: O lexema é a sequência concreta e literal de caracteres lida no arquivo de código fonte (ex: `limite`), enquanto o token é a categoria abstrata ou par `<nome_token, valor_atributo>` atribuído pelo analisador léxico (ex: `<IDENTIFIER, "limite">`).
+- Versão corrigida: Lexemas são as instâncias concretas de texto presentes no código fonte, enquanto tokens são as categorias sintáticas abstratas nas quais os lexemas são classificados para o analisador sintático.
+
+3. Reconhecedores e geradores
+Descreva um procedimento para reconhecer ou analisar “Reconhecedores e geradores” em um pequeno trecho de linguagem e indique a evidência observada.
+R:
+- Procedimento:
+  1. Forneça o trecho de código `x = a + 1;` a um mecanismo de análise sintática.
+  2. Para atuar como reconhecedor, o mecanismo lê a cadeia de entrada token por token e verifica se ela pertence à linguagem definida pela gramática, aceitando ou rejeitando a sentença.
+  3. Para atuar como gerador, o mecanismo parte do símbolo inicial da gramática (ex: `<Atrib>`) e aplica sucessivas regras de produção até derivar a sentença `x = a + 1;`.
+- Evidência observada: O compilador utiliza o modelo reconhecedor ao emitir uma árvore sintática ou mensagem de sucesso ao ler `x = a + 1;`. Por outro lado, o modelo gerador é evidenciado na especificação formal da linguagem através da derivação das produções gramaticais.
+
+4. BNF e gramáticas livres de contexto
+Compare duas representações ou interpretações possíveis de “BNF e gramáticas livres de contexto” e explicite o critério que as distingue.
+R:
+- Representação 1 (BNF - Notação Metalinguística): Notação pragmática e visual que utiliza símbolos como `<não-terminal>`, `::=` e `|` para definir a sintaxe concreta de linguagens de programação.
+- Representação 2 (GLC - Formalismo Matemático): Definição matemática estrita baseada na quádrupla G = (Vn, Vt, S, P), usada para estudar propriedades formais e limitações das linguagens.
+- Critério de distinção: Nível de abstração e propósito. A BNF é uma sintaxe concreta legível usada na prática para documentação e implementação de compiladores, enquanto a GLC é o modelo teórico-matemático subjacente usado na teoria da computação.
+
+5. Derivação e árvore sintática
+Aplique “Derivação e árvore sintática” a uma situação de projeto de linguagem, compilador ou verificação de programa. Justifique a análise passo a passo.
+R:
+- Aplicação: Verificação de precedência de operadores na expressão `a + b * c` usando a gramática:
+  E -> E + T | T
+  T -> T * F | F
+  F -> id
+- Análise passo a passo:
+  1. Derivação mais à esquerda: E => E + T => T + T => F + T => a + T => a + T * F => a + F * F => a + b * F => a + b * c.
+  2. Árvore sintática: A raiz E possui os filhos E, '+' e T. O nó filho T à direita expande para T, '*' e F.
+  3. Justificativa: A estrutura hierárquica da árvore coloca a subárvore da multiplicação (`b * c`) abaixo no nível da árvore, garantindo que a multiplicação seja avaliada antes da adição durante a geração de código.
+
+6. Ambiguidade gramatical
+Explique “Ambiguidade gramatical” com suas palavras e construa um exemplo curto que evidencie o conceito.
+R:
+- Explicação: Uma gramática é ambígua quando é capaz de gerar duas ou mais árvores sintáticas distintas (ou duas derivações mais à esquerda distintas) para uma mesma sentença válida.
+- Exemplo: Dada a gramática `E -> E + E | E * E | id`, a sentença `a + b * c` possui duas árvores sintáticas possíveis: uma associando primeiro `(a + b) * c` e outra associando `a + (b * c)`. Essa duplicidade impede o compilador de determinar a ordem correta de execução.
+
+7. BNF estendida
+Formule uma afirmação incorreta comum sobre “BNF estendida”, explique o erro conceitual e apresente a versão corrigida.
+R:
+- Afirmação incorreta: "A BNF Estendida (EBNF) é mais potente que a BNF tradicional por conseguir descrever linguagens complexas que a BNF normal não consegue representar."
+- Erro conceitual: A EBNF não amplia o poder de expressividade formal; ambas descrevem exatamente a mesma classe de Linguagens Livres de Contexto. A EBNF oferece apenas conveniências sintáticas (açúcar sintático), como repetição `{}` e opcionalidade `[]`.
+- Versão corrigida: A EBNF possui exatamente o mesmo poder expressivo da BNF tradicional, apenas aumentando a legibilidade e reduzindo o tamanho das regras gramaticais.
+
+8. Gramáticas de atributos
+Descreva um procedimento para reconhecer ou analisar “Gramáticas de atributos” em um pequeno trecho de linguagem e indique a evidência observada.
+R:
+- Procedimento:
+  1. Dada a regra sintática de atribuição `A -> id = E`, associe o atributo `A.type` ao nó do identificador e `E.type` ao nó da expressão.
+  2. Adicione a condição semântica: `assert(id.type == E.type)`.
+  3. Passe o trecho `int x = 3.14;` para o analisador semântico decorado.
+- Evidência observada: Durante o percurso da árvore decorada, a gramática de atributos detecta `x.type = int` e `3.14.type = float`, identificando a incompatibilidade e emitindo um erro semântico de atribuição inválida antes do código ser traduzido.
+
+9. Atributos sintetizados e herdados
+Compare duas representações ou interpretações possíveis de “Atributos sintetizados e herdados” e explicite o critério que as distingue.
+R:
+- Atributos Sintetizados: Valores calculados exclusivamente a partir dos nós filhos na árvore sintática (fluxo bottom-up). Exemplo: a avaliação do valor numérico de uma expressão composta a partir de seus operandos.
+- Atributos Herdados: Valores passados para um nó a partir de seu nó pai ou de nós irmãos (fluxo top-down ou lateral). Exemplo: a propagação do tipo de dado declarado para todas as variáveis em uma lista de declarações (`int a, b, c;`).
+- Critério de distinção: Direção do fluxo de informação na árvore de análise sintática decorada.
+
+10. Métodos de semântica dinâmica
+Aplique “Métodos de semântica dinâmica” a uma situação de projeto de linguagem, compilador ou verificação de programa. Justifique a análise passo a passo.
+R:
+- Aplicação: Especificação do comportamento do laço `while (cond) stmt` usando Semântica Operacional Estruturada.
+- Análise passo a passo:
+  1. Define-se a configuração de estado como `<código, memória>`.
+  2. Regra 1 (Condição Falsa): Se a avaliação de `cond` na memória `s` resulta em `false`, a transição é `<while (cond) stmt, s> => s` (o laço encerra sem alterar a memória).
+  3. Regra 2 (Condição Verdadeira): Se a avaliação de `cond` na memória `s` resulta em `true`, a transição reescreve o comando como `<stmt; while (cond) stmt, s>`.
+  4. Executa-se `stmt` atualizando a memória de `s` para `s'` e avalia-se recursivamente o laço.
+- Justificativa: A semântica operacional define precisamente a execução passo a passo através da manipulação do estado da máquina abstrata, garantindo uma especificação não ambígua do comportamento em tempo de execução.
